@@ -11,4 +11,4 @@ node_modules/
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw?.angular/cache/
