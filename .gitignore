@@ -1,3 +1,14 @@
 # Ignorar la carpeta node_modules en la raíz del proyecto
 node_modules/
 
+# Ignore Angular cache directory
+.angular/cache/
+
+# Ignore IDE/Editor specific files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
