@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from '../../services/reservation.service';
 
 @Component({
   selector: 'app-reservation-summary',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservation-summary.component.scss']
 })
 export class ReservationSummaryComponent implements OnInit {
+  reservation: any;
 
-  constructor() { }
+  constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
+    this.loadReservationDetails();
   }
 
+  loadReservationDetails(): void {
+    // Obtener los detalles de la última reserva realizada utilizando el servicio de reserva
+    this.reservation = this.reservationService.getReservationDetails();
+  }
 }
