@@ -7,16 +7,18 @@ import { ReservationService } from '../../services/reservation.service';
   styleUrls: ['./reservation-summary.component.scss']
 })
 export class ReservationSummaryComponent implements OnInit {
-  reservation: any;
+  lastReservation: any;
 
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
-    this.loadReservationDetails();
+    this.reservationService.reservationUpdated.subscribe(() => {
+      this.loadLastReservation();
+    });
+    this.loadLastReservation();
   }
 
-  loadReservationDetails(): void {
-    // Obtener los detalles de la última reserva realizada utilizando el servicio de reserva
-    this.reservation = this.reservationService.getReservationDetails();
+  loadLastReservation(): void {
+    this.lastReservation = this.reservationService.getLastReservation();
   }
 }

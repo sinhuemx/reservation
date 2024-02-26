@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 import { ReservationFormComponent } from './components/reservation-form/reservation-form.component';
 import { ReservationSummaryComponent } from './components/reservation-summary/reservation-summary.component';
 import { PreviousReservationsComponent } from './components/previous-reservations/previous-reservations.component';
@@ -27,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppComponent,
     CalendarComponent,
     ScheduleListComponent,
+    ReservationComponent,
     ReservationFormComponent,
     ReservationSummaryComponent,
     PreviousReservationsComponent,

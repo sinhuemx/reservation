@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarService } from '../../services/calendar.service';
+import { ReservationService } from '../../services/reservation.service';
 
 @Component({
   selector: 'app-schedule-list',
@@ -7,17 +7,16 @@ import { CalendarService } from '../../services/calendar.service';
   styleUrls: ['./schedule-list.component.scss']
 })
 export class ScheduleListComponent implements OnInit {
-  schedules: string[] = [];
+  schedules: any[] = [];
 
-  constructor(private calendarService: CalendarService) { }
+  constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
     this.loadSchedules();
   }
 
   loadSchedules(): void {
-    this.calendarService.getDeliverySchedules().subscribe(schedules => {
-      this.schedules = schedules;
-    });
+    // Obtener los horarios disponibles del servicio de reserva
+    this.schedules = this.reservationService.getSchedules();
   }
 }

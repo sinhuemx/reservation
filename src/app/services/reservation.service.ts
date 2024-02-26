@@ -1,10 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
   private reservations: any[] = [];
+  private lastReservation: any;
+   reservationUpdated: EventEmitter<any> = new EventEmitter<any>();
+   private schedules: any[] = [
+    { time: '08:00 AM', available: true },
+    { time: '10:00 AM', available: false },
+    { time: '12:00 PM', available: true },
+    { time: '02:00 PM', available: true },
+    { time: '04:00 PM', available: false }
+  ];
 
   constructor() {}
 
@@ -15,7 +24,7 @@ export class ReservationService {
 
   getSchedules(): any[] {
     // Implementa la lógica para obtener los horarios generales
-    return [];
+    return this.schedules;
   }
 
   submitReservation(userInfo: any): void {
@@ -33,9 +42,13 @@ export class ReservationService {
     return this.reservations;
   }
 
-   makeReservation(formData: any): void {
-    // Agrega la nueva reserva al arreglo de reservas
+  makeReservation(formData: any): void {
     this.reservations.push(formData);
- 
+    this.lastReservation = formData;
+    this.reservationUpdated.emit(); // Emitir un evento cuando se realiza una nueva reserva
+  }
+
+  getLastReservation(): any {
+    return this.lastReservation;
   }
 }

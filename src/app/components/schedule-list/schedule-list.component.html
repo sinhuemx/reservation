@@ -1,6 +1,9 @@
-<div>
-  <h2>Lista de horarios de entrega</h2>
-  <ul>
-    <li *ngFor="let schedule of schedules">{{ schedule }}</li>
-  </ul>
-</div>
+<h2>Horarios Disponibles</h2>
+
+<mat-list>
+  <mat-list-item *ngFor="let schedule of schedules" [ngClass]="{ 'available': schedule.available, 'not-available': !schedule.available }">
+    {{ schedule.time }} - {{ schedule.available ? 'Disponible' : 'No disponible' }}
+  </mat-list-item>
+</mat-list>
+
+

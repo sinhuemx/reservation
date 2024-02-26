@@ -1,12 +1,13 @@
 <div>
   <h2>Detalles de la reserva</h2>
-  <div *ngIf="reservation">
-    <p><strong>Nombre:</strong> {{ reservation.name }}</p>
-    <p><strong>Email:</strong> {{ reservation.email }}</p>
-    <p><strong>Fecha de reserva:</strong> {{ reservation.date | date }}</p>
-    <!-- Agregar más detalles de la reserva según sea necesario -->
+  <div *ngIf="lastReservation">
+    <p><strong>Nombre:</strong> {{ lastReservation.name }}</p>
+    <p><strong>Email:</strong> {{ lastReservation.email }}</p>
+    <p><strong>Teléfono:</strong> {{ lastReservation.phone }}</p>
+    <p><strong>Fecha de reserva:</strong> {{ lastReservation.date }}</p>
+    <p><strong>Hora de reserva:</strong> {{ lastReservation.time }}</p>
   </div>
-  <div *ngIf="!reservation">
+  <div *ngIf="!lastReservation">
     <p>No se encontraron detalles de la reserva.</p>
   </div>
 </div>

@@ -26,6 +26,8 @@ export class CalendarComponent implements OnInit {
     return this.availableDates.some(d => d.getTime() === date.getTime());
   }
 
+  
+
   // Manejar la selección de fecha
   dateSelected(date: Date): void {
     this.selectedDate = date;

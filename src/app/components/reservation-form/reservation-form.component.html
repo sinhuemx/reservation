@@ -1,12 +1,30 @@
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" formControlName="name">
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email">
-    <br>
-    <label for="phone">Teléfono:</label>
-    <input type="tel" id="phone" formControlName="phone">
-    <br>
-    <button type="submit" [disabled]="!reservationForm.valid">Hacer Reservación</button>
-  </form>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput type="text" id="name" formControlName="name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" id="email" formControlName="email">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Teléfono</mat-label>
+    <input matInput type="tel" id="phone" formControlName="phone">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Fecha</mat-label>
+    <input matInput [matDatepicker]="picker" id="date" formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Hora</mat-label>
+    <input matInput type="time" id="time" formControlName="time">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!reservationForm.valid || submitted">Hacer Reservación</button>
+</form>
