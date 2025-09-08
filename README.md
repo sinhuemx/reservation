@@ -3,7 +3,7 @@
 
 Here I show a reservation project through a functional calendar to implement various scopes.
 
-Monterrey, México 2024 
+Austin, TX 2024 
 
 
 
